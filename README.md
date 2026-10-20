@@ -7,6 +7,7 @@
 ➤ [Descripción del proyecto](#descripción)
 ➤ [Objetivos del proyecto](#Objetivos)
 ➤ [Componentes del proyecto](#Componentes)
+
 ➤ [Funcionamiento del sistema](#Funcionamiento)
 ➤ [Diagrama UML](#Diagrama)
 ➤ [Tarifas](#Tarifas)
