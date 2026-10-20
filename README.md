@@ -3,7 +3,7 @@
 # ***PARQUEADERO MCN*** 
 ## Indice - Proyecto
 
-➤ [Colaboradores del proyecto](Colaboradores)
+➤ [Colaboradores del proyecto](#Colaboradores)
 ➤ [Descripción del proyecto](#descripción)
 ➤ [Objetivos del proyecto](#Objetivos)
 ➤ [Componentes del proyecto](#Componentes)
@@ -25,9 +25,35 @@ Desarrollamos un sistema distribuido de gestión de parqueadero que genera y tra
 3. Incorporar la lógica de detección de repetición de placas para identificar cuándo un vehículo ingresa o sale del parqueadero, liberando automáticamente la celda correspondiente y manteniendo el estado actualizado del sistema.
 
 ### Componentes
+1. Servidor — Generador de Placas
+• Desarrollado en C++, actúa como proceso principal del sistema.
+• Genera placas de forma aleatoria cada 2 a 5 segundos.
+• Asigna la hora actual y una celda de parqueadero disponible a cada vehículo que ingresa.
+• Detecta cuando una placa ya existe → libera la celda ocupada y registra la salida del vehículo.
+• Envía toda la información al cliente mediante sockets TCP.
+
+2. Cliente — Receptor de Datos
+• También implementado en C++, establece la conexión con el servidor.
+• Recibe en tiempo real los datos transmitidos: placa, hora, celda y tipo de evento (ingreso o liberación).
+• Transfiere la información recibida hacia la librería dinámica para su visualización.
+
+3. Librería Dinámica
+• Módulo compartido que funciona como puente entre el código en C++ y el visualizador.
+• Expone funciones para conectarse al servidor y recibir los datos estructurados.
+• Permite que el lenguaje de alto nivel (Python) acceda a la lógica de comunicación sin reescribirla.
+
+4. Visualizador
+• Desarrollado en Python, carga la librería dinámica y muestra la información de forma amigable.
+• Presenta en pantalla: número de placa, hora del suceso, celda asignada y estado del vehículo (ingreso o liberación).
+• Actualiza la información automáticamente a medida que llegan nuevos datos.
+
 ### Funcionamiento
 ### Diagrama
 ### Tarifas
 ### Contactos
 ### Colaboradores
+Este proyecto ha sido desarrollado por: 
+❖ MARTIN MORALES MUÑOZ
+❖ NILSON PALACIOS CARDENA
+❖ LEIDY CAROLINA DAVID VALLE
 
