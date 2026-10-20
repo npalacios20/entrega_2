@@ -50,7 +50,15 @@ Desarrollamos un sistema distribuido de gestión de parqueadero que genera y tra
 ### Funcionamiento
 ### Diagrama
 ### Tarifas
+El parqueadero MCN actualmente cuanta con 2 tarifas: 
+💲 Tarifa por hora: **$8.000 COP**
+💲 Tarifa por día: **$20.000 COP**
+
 ### Contactos
+Para contactarse con el parqueadero MCN, puedes usar estos canales:
+📷 **Instagram:** [@parqueadero_MCN](https://instagram.com/parqueadero_MCN)
+💬 **WhatsApp:** [+57 312 456 7890](https://wa.me/573124567890)
+
 ### Colaboradores
 Este proyecto ha sido desarrollado por: 
 
