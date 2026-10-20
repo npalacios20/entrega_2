@@ -95,7 +95,7 @@ int main() {
         return 1;
     }
 
-    std::string ip_servidor = "192.168.1.147";
+    std::string ip_servidor = "127.0.0.1";
     SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == INVALID_SOCKET) {
         WSACleanup();
