@@ -48,6 +48,16 @@ Desarrollamos un sistema distribuido de gestión de parqueadero que genera y tra
 • Actualiza la información automáticamente a medida que llegan nuevos datos.
 
 ### Funcionamiento
+Paso a paso para ejecutar el programa: 
+1. Entrar a la carpeta del proyecto
+2. Verificar los archivos
+3. Compilar el Servidor
+4. Ejecutar el Servidor
+5. Ejecutar el Cliente
+6. Observar el funcionamiento
+7. Detener el programa con el mando Ctrl + C
+
+
 ### Diagrama
 <img width="1080" height="463" alt="Diagrama UML" src="https://github.com/user-attachments/assets/a166a0a5-6aaa-47e4-9fcb-f963500073fa" />
 
