@@ -53,7 +53,10 @@ Desarrollamos un sistema distribuido de gestión de parqueadero que genera y tra
 ### Contactos
 ### Colaboradores
 Este proyecto ha sido desarrollado por: 
+
 ❖ MARTIN MORALES MUÑOZ
+
 ❖ NILSON PALACIOS CARDENA
+
 ❖ LEIDY CAROLINA DAVID VALLE
 
