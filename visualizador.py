@@ -9,7 +9,7 @@ class VisualizadorParqueadero:
     def __init__(self, root):
         self.root = root
         self.root.title("Visualizador de Parqueadero - Servidor C++ (SWIG) + Python")
-        self.root.geometry("850x650")
+        self.root.geometry("850x850")
         
         self.servidor_cpp = server_lib.ParqueaderoServidor()
         
@@ -20,32 +20,32 @@ class VisualizadorParqueadero:
         top_frame = tk.Frame(self.root, bg="#f0f0f0")
         top_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
-        lbl_titulo = tk.Label(top_frame, text="Plano de Celdas de Parqueo (C1 - C6)", font=("Arial", 12, "bold"))
+        lbl_titulo = tk.Label(top_frame, text="Plano de Celdas de Parqueo (C1 - C18)", font=("Arial", 12, "bold"))
         lbl_titulo.pack(anchor="w", pady=5)
         
         self.grid_frame = tk.Frame(top_frame, bg="#e0e0e0", bd=2, relief=tk.GROOVE)
         self.grid_frame.pack(fill=tk.BOTH, expand=True, pady=5)
         
         self.celdas_ui = {}
-        for i in range(1, 7):
-            row = 0 if i <= 3 else 1
+        for i in range(1, 19):
+            row = (i - 1) // 3
             col = (i - 1) % 3
             
-            f = tk.Frame(self.grid_frame, bg="green", bd=2, relief=tk.RAISED, width=220, height=110)
-            f.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
+            f = tk.Frame(self.grid_frame, bg="green", bd=2, relief=tk.RAISED, width=220, height=70)
+            f.grid(row=row, column=col, padx=5, pady=5, sticky="nsew")
             f.pack_propagate(False)
             
-            lbl_id = tk.Label(f, text=f"C{i} [LIBRE]", font=("Arial", 11, "bold"), fg="white", bg="green")
+            lbl_id = tk.Label(f, text=f"C{i} [LIBRE]", font=("Arial", 10, "bold"), fg="white", bg="green")
             lbl_id.pack(expand=True)
             
-            lbl_placa = tk.Label(f, text="", font=("Arial", 10), fg="white", bg="green")
+            lbl_placa = tk.Label(f, text="", font=("Arial", 9), fg="white", bg="green")
             lbl_placa.pack(expand=True)
             
             self.celdas_ui[i] = {"frame": f, "lbl_id": lbl_id, "lbl_placa": lbl_placa}
             
         for c in range(3):
             self.grid_frame.columnconfigure(c, weight=1)
-        for r in range(2):
+        for r in range(6):
             self.grid_frame.rowconfigure(r, weight=1)
             
         bottom_frame = tk.Frame(self.root)
@@ -54,14 +54,14 @@ class VisualizadorParqueadero:
         lbl_consola = tk.Label(bottom_frame, text="Consola de Eventos y Horas", font=("Arial", 11, "bold"))
         lbl_consola.pack(anchor="w")
         
-        self.consola = scrolledtext.ScrolledText(bottom_frame, height=12, font=("Consolas", 10))
+        self.consola = scrolledtext.ScrolledText(bottom_frame, height=10, font=("Consolas", 10))
         self.consola.pack(fill=tk.BOTH, expand=True, pady=5)
         
         self.log_consola("Servidor Python Socket activo y escuchando en puerto 8080")
 
     def log_consola(self, texto):
         timestamp = datetime.now().strftime("[%H:%M:%S]")
-        self.consola.insert(tk.END, f"[{timestamp}] {texto}\n")
+        self.consola.insert(tk.END, f"{timestamp} {texto}\n")
         self.consola.see(tk.END)
 
     def actualizar_gui(self, res):
@@ -77,7 +77,7 @@ class VisualizadorParqueadero:
             self.consola.insert(tk.END, f"[{timestamp}] Placa: {res.placa} | Acción: {res.accion} | Celda ID: {res.celdaId}\n")
             self.consola.see(tk.END)
 
-        for i in range(1, 7):
+        for i in range(1, 19):
             f = self.celdas_ui[i]["frame"]
             lbl_id = self.celdas_ui[i]["lbl_id"]
             lbl_placa = self.celdas_ui[i]["lbl_placa"]
