@@ -11,7 +11,7 @@
 ➤ [Funcionamiento del sistema](#Funcionamiento)
 ➤ [Diagrama UML](#Diagrama)
 ➤ [Tarifas](#Tarifas)
-➤ [Contacto y redes](#Contacto)
+➤ [Contacto y redes](#Contactos)
 
 
 ### Descripción
