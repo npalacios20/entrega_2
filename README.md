@@ -1,7 +1,7 @@
 <img width="2230" height="987" alt="Parqueadero_MCN" src="https://github.com/user-attachments/assets/d12af842-230f-48b1-9cee-f4e548000faa" />
 
 # ***PARQUEADERO MCN*** 
-## Indice - Proyecto
+## Indice
 
 ➤ [Colaboradores del proyecto](#Colaboradores)
 ➤ [Descripción del proyecto](#descripción)
@@ -82,4 +82,4 @@ Este proyecto ha sido desarrollado por:
 
 ❖ LEIDY CAROLINA DAVID VALLE
 
-# [⬆ Volver al Índice](#índice)
+# [⬆ Volver al Índice](#Indice)
