@@ -1,10 +1,14 @@
 #include "server.h"
 #include <iostream>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
+#include <chrono>
 
-#define TOTAL_ESPACIOS 6
+#define TOTAL_ESPACIOS 18
 
 ParqueaderoServidor::ParqueaderoServidor() {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
     inicializarParqueadero();
 }
 
@@ -38,49 +42,86 @@ std::string ParqueaderoServidor::obtenerEstadoParqueadero() {
 ResultadoProcesoPy ParqueaderoServidor::procesarPlacaEntrante(const std::string& placa) {
     ResultadoProcesoPy res;
     res.placa = placa;
+    std::string eventosExtra = "";
 
-    // 1. Verificar si el vehículo ya está adentro -> Simula la SALIDA
+    static auto ultimaSalidaAutomatica = std::chrono::steady_clock::now();
+    auto ahora = std::chrono::steady_clock::now();
+    auto segundosTranscurridos = std::chrono::duration_cast<std::chrono::seconds>(ahora - ultimaSalidaAutomatica).count();
+
+    while (segundosTranscurridos >= 12) {
+        std::vector<int> indicesOcupados;
+        for (int i = 0; i < TOTAL_ESPACIOS; ++i) {
+            if (parqueadero[i].ocupado) {
+                indicesOcupados.push_back(i);
+            }
+        }
+
+        if (!indicesOcupados.empty()) {
+            int idxAuto = indicesOcupados[std::rand() % indicesOcupados.size()];
+            std::string placaSalida = parqueadero[idxAuto].placaVehiculo;
+            int idCelda = parqueadero[idxAuto].id;
+
+            parqueadero[idxAuto].ocupado = false;
+            parqueadero[idxAuto].placaVehiculo = "";
+            eventosExtra += "Placa: " + placaSalida + " | Acción: SALIDA_AUTO | Celda ID: " + std::to_string(idCelda) + "\n";
+
+            if (!colaEsperaPlacas.empty()) {
+                std::string siguientePlaca = colaEsperaPlacas.front();
+                colaEsperaPlacas.pop();
+
+                parqueadero[idxAuto].ocupado = true;
+                parqueadero[idxAuto].placaVehiculo = siguientePlaca;
+                eventosExtra += "Placa: " + siguientePlaca + " | Acción: ENTRADA_FIFO | Celda ID: " + std::to_string(idCelda) + "\n";
+            }
+        }
+        ultimaSalidaAutomatica += std::chrono::seconds(12);
+        segundosTranscurridos -= 12;
+    }
+
     for (int i = 0; i < TOTAL_ESPACIOS; ++i) {
         if (parqueadero[i].ocupado && parqueadero[i].placaVehiculo == placa) {
             res.celdaId = parqueadero[i].id;
             res.accion = "SALIDA";
             
-            // Liberar espacio
             parqueadero[i].ocupado = false;
             parqueadero[i].placaVehiculo = "";
 
-            // REGLA FIFO: Si hay alguien en la cola de espera, el primero entra automáticamente a este espacio liberado
             if (!colaEsperaPlacas.empty()) {
                 std::string siguientePlaca = colaEsperaPlacas.front();
                 colaEsperaPlacas.pop();
 
                 parqueadero[i].ocupado = true;
                 parqueadero[i].placaVehiculo = siguientePlaca;
-                // Podríamos retornar un indicador extra, pero la salida libera y el primero de la cola toma el puesto
+                eventosExtra += "Placa: " + siguientePlaca + " | Acción: ENTRADA_FIFO | Celda ID: " + std::to_string(res.celdaId) + "\n";
             }
 
-            res.estadoParqueadero = obtenerEstadoParqueadero();
+            res.estadoParqueadero = eventosExtra + obtenerEstadoParqueadero();
             return res;
         }
     }
 
-    // 2. Buscar si hay espacios libres para ENTRADA directa
+    std::vector<int> indicesLibres;
     for (int i = 0; i < TOTAL_ESPACIOS; ++i) {
         if (!parqueadero[i].ocupado) {
-            parqueadero[i].ocupado = true;
-            parqueadero[i].placaVehiculo = placa;
-
-            res.celdaId = parqueadero[i].id;
-            res.accion = "ENTRADA";
-            res.estadoParqueadero = obtenerEstadoParqueadero();
-            return res;
+            indicesLibres.push_back(i);
         }
     }
 
-    // 3. Si todo está lleno -> Va a la FILA DE ESPERA (FIFO)
+    if (!indicesLibres.empty()) {
+        int indiceAleatorio = indicesLibres[std::rand() % indicesLibres.size()];
+
+        parqueadero[indiceAleatorio].ocupado = true;
+        parqueadero[indiceAleatorio].placaVehiculo = placa;
+
+        res.celdaId = parqueadero[indiceAleatorio].id;
+        res.accion = "ENTRADA";
+        res.estadoParqueadero = eventosExtra + obtenerEstadoParqueadero();
+        return res;
+    }
+
     colaEsperaPlacas.push(placa);
-    res.celdaId = -1;
+    res.celdaId = static_cast<int>(colaEsperaPlacas.size()); 
     res.accion = "EN_ESPERA";
-    res.estadoParqueadero = obtenerEstadoParqueadero();
+    res.estadoParqueadero = eventosExtra + obtenerEstadoParqueadero();
     return res;
 }

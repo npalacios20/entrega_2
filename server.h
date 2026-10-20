@@ -7,14 +7,14 @@
 
 struct ResultadoProcesoPy {
     std::string placa;
-    int celdaId;         // 1 al 6, o -1 si queda en espera
-    std::string accion;  // "ENTRADA", "SALIDA", "EN_ESPERA"
+    int celdaId;        
+    std::string accion;  
     std::string estadoParqueadero;
 };
 
 class ParqueaderoServidor {
 private:
-    // Estructuras internas de tu lógica original protegidas en la clase
+   
     struct EspacioParqueadero {
         int id;
         bool ocupado;
@@ -22,7 +22,7 @@ private:
     };
 
     std::vector<EspacioParqueadero> parqueadero;
-    std::queue<std::string> colaEsperaPlacas; // Fila FIFO pura de placas
+    std::queue<std::string> colaEsperaPlacas; 
 
 public:
     ParqueaderoServidor();
