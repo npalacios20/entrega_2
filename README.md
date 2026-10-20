@@ -1,7 +1,7 @@
 <img width="2230" height="987" alt="Parqueadero_MCN" src="https://github.com/user-attachments/assets/d12af842-230f-48b1-9cee-f4e548000faa" />
 
 # ***PARQUEADERO MCN*** 
-## Indice - Proyecto
+## Indice
 
 ➤ [Colaboradores del proyecto](#Colaboradores)
 ➤ [Descripción del proyecto](#descripción)
@@ -11,7 +11,7 @@
 ➤ [Funcionamiento del sistema](#Funcionamiento)
 ➤ [Diagrama UML](#Diagrama)
 ➤ [Tarifas](#Tarifas)
-➤ [Contacto y redes](#Contacto)
+➤ [Contacto y redes](#Contactos)
 
 
 ### Descripción
@@ -51,22 +51,21 @@ Desarrollamos un sistema distribuido de gestión de parqueadero que genera y tra
 ### Diagrama
 ### Tarifas
 El parqueadero MCN actualmente cuanta con 2 tarifas: 
-💲 Tarifa por hora: **$8.000 COP**
-💲 Tarifa por día: **$20.000 COP**
+💲 Tarifa por hora: **$ 8.000 COP**
+💲 Tarifa por día: **$ 20.000 COP**
 
 ### Contactos
 Para contactarse con el parqueadero MCN, puedes usar estos canales:
-<img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/3d3c2f34-3934-4a08-8e7a-c592a9b67c44" />
- [@parqueadero_MCN](#https://instagram.com/parqueadero_MCN)
-<img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/e3f9e59f-2b36-4fd0-b4e6-0c975b4585b1" />
-[+67 312 456 7890](#https://wa.me/673124567890)
+<img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/0207ac29-bc59-4431-8795-c80fac9efdae" />
+[@parqueadero_MCN](https://instagram.com/parqueadero_MCN)
+<img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/5dac9ff7-c5fe-4c0d-8170-48550b0d59c6" />
+[+67 312 456 7890](https://wa.me/673124567890)
 
 ### Colaboradores
 Este proyecto ha sido desarrollado por: 
 
-❖ MARTIN MORALES MUÑOZ
+❖ Martín Morales Muñoz    
+❖ Leidy Carolina David Valle     
+❖ Nilson Palacios Cardenas     
 
-❖ NILSON PALACIOS CARDENA
-
-❖ LEIDY CAROLINA DAVID VALLE
-
+[🔝 Volver al Índice](#Indice)
