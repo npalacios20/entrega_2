@@ -64,10 +64,8 @@ Para contactarse con el parqueadero MCN, puedes usar estos canales:
 ### Colaboradores
 Este proyecto ha sido desarrollado por: 
 
-❖ MARTIN MORALES MUÑOZ
-
-❖ NILSON PALACIOS CARDENA
-
-❖ LEIDY CAROLINA DAVID VALLE
+❖ Martín Morales Muñoz //
+❖ Nilson Palacios Cardenas //
+❖ Leidy Carolina David Valle
 
 [🔝 Volver al Índice](#Indice)
