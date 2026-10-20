@@ -39,24 +39,24 @@ ResultadoProcesoPy ParqueaderoServidor::procesarPlacaEntrante(const std::string&
     ResultadoProcesoPy res;
     res.placa = placa;
 
-    // 1. Verificar si el vehículo ya está adentro -> Simula la SALIDA
+    
     for (int i = 0; i < TOTAL_ESPACIOS; ++i) {
         if (parqueadero[i].ocupado && parqueadero[i].placaVehiculo == placa) {
             res.celdaId = parqueadero[i].id;
             res.accion = "SALIDA";
             
-            // Liberar espacio
+            
             parqueadero[i].ocupado = false;
             parqueadero[i].placaVehiculo = "";
 
-            // REGLA FIFO: Si hay alguien en la cola de espera, el primero entra automáticamente a este espacio liberado
+            
             if (!colaEsperaPlacas.empty()) {
                 std::string siguientePlaca = colaEsperaPlacas.front();
                 colaEsperaPlacas.pop();
 
                 parqueadero[i].ocupado = true;
                 parqueadero[i].placaVehiculo = siguientePlaca;
-                // Podríamos retornar un indicador extra, pero la salida libera y el primero de la cola toma el puesto
+                
             }
 
             res.estadoParqueadero = obtenerEstadoParqueadero();
@@ -64,7 +64,7 @@ ResultadoProcesoPy ParqueaderoServidor::procesarPlacaEntrante(const std::string&
         }
     }
 
-    // 2. Buscar si hay espacios libres para ENTRADA directa
+   
     for (int i = 0; i < TOTAL_ESPACIOS; ++i) {
         if (!parqueadero[i].ocupado) {
             parqueadero[i].ocupado = true;
@@ -77,7 +77,7 @@ ResultadoProcesoPy ParqueaderoServidor::procesarPlacaEntrante(const std::string&
         }
     }
 
-    // 3. Si todo está lleno -> Va a la FILA DE ESPERA (FIFO)
+    
     colaEsperaPlacas.push(placa);
     res.celdaId = -1;
     res.accion = "EN_ESPERA";
