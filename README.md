@@ -57,8 +57,8 @@ El parqueadero MCN actualmente cuanta con 2 tarifas:
 ### Contactos
 Para contactarse con el parqueadero MCN, puedes usar estos canales:
 <img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/8743890e-bef9-4835-a53b-9f5d42ac4d02" />
-<img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/da1d9e48-f3cc-4531-b75e-767901106763" />
 [@parqueadero_MCN](https://instagram.com/parqueadero_MCN)
+<img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/da1d9e48-f3cc-4531-b75e-767901106763" />
 [+67 312 456 7890](https://wa.me/673124567890)
 
 ### Colaboradores
