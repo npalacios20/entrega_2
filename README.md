@@ -71,7 +71,7 @@ Para contactarse con el parqueadero MCN, puedes usar estos canales:
 <img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/3d3c2f34-3934-4a08-8e7a-c592a9b67c44" />
  [@parqueadero_MCN](#https://instagram.com/parqueadero_MCN)
 <img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/e3f9e59f-2b36-4fd0-b4e6-0c975b4585b1" />
-[+67 312 456 7890](#https://wa.me/673124567890)
+[+67 3124567890](#https://wa.me/673124567890)
 
 ### Colaboradores
 Este proyecto ha sido desarrollado por: 
