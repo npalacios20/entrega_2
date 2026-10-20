@@ -3,6 +3,7 @@
 # ***PARQUEADERO MCN*** 
 ## Indice - Proyecto
 
+➤ [Colaboradores del proyecto](Colaboradores)
 ➤ [Descripción del proyecto](#descripción)
 ➤ [Objetivos del proyecto](#Objetivos)
 ➤ [Componentes del proyecto](#Componentes)
@@ -10,7 +11,7 @@
 ➤ [Diagrama UML](#Diagrama)
 ➤ [Tarifas](#Tarifas)
 ➤ [Contacto y redes](#Contacto)
-➤ [Colaboradores del proyecto](Colaboradores)
+
 
 ### Descripción
 ### Objetivos
