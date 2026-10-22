@@ -160,4 +160,8 @@ class ParqueaderoApp:
 if __name__ == "__main__":
     root = tk.Tk()
     app = ParqueaderoApp(root)
+<<<<<<< HEAD
     root.mainloop()
+=======
+    root.mainloop()
+>>>>>>> 40fa55daef5a32fc0f2db735b0c45eb061e65e88

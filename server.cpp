@@ -4,7 +4,10 @@
 #include <cstdlib>
 #include <ctime>
 #include <chrono>
+<<<<<<< HEAD
  
+=======
+>>>>>>> 40fa55daef5a32fc0f2db735b0c45eb061e65e88
 #define TOTAL_ESPACIOS 18
  
 ParqueaderoServidor::ParqueaderoServidor() {
